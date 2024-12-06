@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Редактирование продукта</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Редактирование продукта</h1>
+<form th:action="@{/productsAdmin/edit/{id}(id=${product.id})}" method="post">
+  <label for="name">Название:</label>
+  <input type="text" id="name" name="name" th:value="${product.name}" required>
+  <label for="price">Цена:</label>
+  <input type="number" step="0.01" id="price" name="price" th:value="${product.price}" required>
+  <label for="stock">Количество:</label>
+  <input type="number" id="stock" name="stock" th:value="${product.stock}" required>
+  <label for="description">Описание:</label>
+  <textarea id="description" name="description" rows="4" th:text="${product.description}"></textarea>
+  <button type="submit">Сохранить изменения</button>
+</form>
+<p><a th:href="@{/productsAdmin}">Вернуться</a></p>
+</body>
+</html>
